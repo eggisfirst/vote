@@ -1,7 +1,7 @@
 <template>
   <div class="login"  v-bind:style="{ height: height + 'px' }">
     <div class="picbox">
-      <h3>好的睡眠从选择床垫开始</h3>
+      <h3>好的睡眠从选择床垫开始123</h3>
       <p>人的一生有三分之一的时间都是在床上度过的，拥有一个良好的睡眠，意味着你这一生的三分之一的时间都是舒服的。与其说，人是睡在床上的，不如说人是睡在床垫上的。所以，好的睡眠从选择一款适合自己的床垫开始的。输入资料，我们将为您选择适合您的床垫。</p>
     </div>
     <form class="loginForm" action="">
