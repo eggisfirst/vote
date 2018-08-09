@@ -8,13 +8,25 @@ import echarts from 'echarts'
 Vue.use(VueRouter)
 
 export var router = new VueRouter({
-  routes: [{
-    path: '/',
+  routes: [
+    {
+    path: '/Vote',
     name: 'Vote',
     component: resolve => require(['pages/Vote'], resolve)
   },{
-    path: '/',
+    path: '/Rank',
     name: 'Rank',
     component: resolve => require(['pages/Rank'], resolve)
-  }]
+  },
+  {
+    path: '/Individualdisplay',
+    name: 'Individualdisplay',
+    component: resolve => require(['pages/Individualdisplay'], resolve)
+  },
+  {
+    path: '/Rule',
+    name: 'Rule',
+    component: resolve => require(['pages/Rule'], resolve)
+  }
+]
 })

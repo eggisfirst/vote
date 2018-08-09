@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
  @font-face {
     font-family: 'PINGPANG';
     src: url('../font-family/HelveticaHv.ttf');

@@ -26,6 +26,7 @@ export default{
 
 <style lang="scss">
 
+
 //变量
 $fontcolor: #fff;
 $subfontcolor: #525252;

@@ -1,18 +1,16 @@
 <template>
   <div class="Footer">
   <ul class="clearfix">
-    <li v-on:click="homeClick">
-      <div class="iconHome">
-       
-      </div>
+    <li >
+      <div v-bind:class="`${home}`" v-on:click="homeClick()"></div>
       <p>首页</p>
     </li>
-    <li v-on:click="rankClick">
-      <div class="iconRank"></div>
+    <li >
+      <div v-bind:class="`${rank}`" v-on:click="rankClick"></div>
       <p>排行</p>
     </li>
-    <li v-on:click="regulationClick">
-      <div class="iconRegulation"></div>
+    <li >
+      <div v-bind:class="`${regulation}`" v-on:click="regulationClick"></div>
       <p>规则</p>
     </li>
   </ul>
@@ -25,25 +23,35 @@ export default {
   name:'Footer',
   data(){
     return{
-
+      home:'iconHome',
+      rank:'iconRank',
+      regulation:'iconRegulation'
     }
   },
   methods:{
     homeClick : function(){
-
+      this.home = 'iconHome'
+      this.rank = 'iconRank'
+      this.regulation = 'iconRegulation'
+      
     },
     rankClick : function(){
-
+      this.rank = 'iconRank1'
+      this.home = 'iconHome1'
+      this.regulation = 'iconRegulation'
+     
     },
-    regulationClick : function(){
-
+    regulationClick : function(){ 
+      this.regulation = 'iconRegulation1'
+      this.home = 'iconHome1'
+      this.rank = 'iconRank'
     }
 
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .Footer{
   width: 100%;
   height: 1.30666rem;
@@ -72,6 +80,13 @@ export default {
           width: 100%;
           height: .5333rem;
         }
+         .iconHome1{
+          background: url("../image/home1.png") no-repeat center;
+          background-size: 100%;
+          width: 100%;
+          height: .5333rem;
+        }
+        
         .iconRank{
           background: url("../image/rank1.png") no-repeat center;
           background-size: 100%;
@@ -91,6 +106,20 @@ export default {
         }
       }
     }
+       
+        .iconRank1{
+          background: url("../image/rank2.png") no-repeat center;
+          background-size: 100%;
+          width: 100%;
+          height: .5333rem;
+        }
+        .iconRegulation1{
+          background: url("../image/regulation2.png") no-repeat center;
+          background-size: 100%;
+          width: 100%;
+          height: .5333rem;
+        }
+
 }
 
 
