@@ -20,8 +20,7 @@
           </li>
         </ul>
       </div>
-      <div class="works" v-for="i in o"></div>
-      
+      <div class="works" v-for="i in o"></div> 
       <div class="describe"></div>
       <button v-bind:class="`${btn}`" v-on:click ='votebtnClick'>{{btnTips}}</button>
     </div>
