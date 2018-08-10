@@ -8,7 +8,6 @@
 <script>
 
 export default {
-  name:'search',
   data(){
     return{
       inputValue : '输入编号或名称搜索投票',

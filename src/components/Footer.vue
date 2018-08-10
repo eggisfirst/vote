@@ -1,17 +1,24 @@
 <template>
   <div class="Footer">
   <ul class="clearfix">
-    <li >
-      <div v-bind:class="`${home}`" v-on:click="homeClick()"></div>
+    <li >    
+      <router-link to="/" > 
+      <div class='iconHome'></div>
       <p>首页</p>
+      </router-link>
+    </li>
+    <li >  
+      <router-link to="/Rank" >
+      <div class="iconRank"></div>
+      <p>排行</p>  
+      </router-link>
     </li>
     <li >
-      <div v-bind:class="`${rank}`" v-on:click="rankClick"></div>
-      <p>排行</p>
-    </li>
-    <li >
-      <div v-bind:class="`${regulation}`" v-on:click="regulationClick"></div>
+      <router-link to="/Rule" >
+       <div class="iconRegulation" ></div>
       <p>规则</p>
+      
+      </router-link>
     </li>
   </ul>
   </div>
@@ -20,32 +27,11 @@
 
 
 export default {
-  name:'Footer',
   data(){
     return{
-      home:'iconHome',
-      rank:'iconRank',
-      regulation:'iconRegulation'
     }
   },
   methods:{
-    homeClick : function(){
-      this.home = 'iconHome'
-      this.rank = 'iconRank'
-      this.regulation = 'iconRegulation'
-      
-    },
-    rankClick : function(){
-      this.rank = 'iconRank1'
-      this.home = 'iconHome1'
-      this.regulation = 'iconRegulation'
-     
-    },
-    regulationClick : function(){ 
-      this.regulation = 'iconRegulation1'
-      this.home = 'iconHome1'
-      this.rank = 'iconRank'
-    }
 
   }
 }
@@ -75,18 +61,11 @@ export default {
           margin-right: 0
         }
         .iconHome{
-          background: url("../image/home2.png") no-repeat center;
-          background-size: 100%;
-          width: 100%;
-          height: .5333rem;
-        }
-         .iconHome1{
           background: url("../image/home1.png") no-repeat center;
           background-size: 100%;
           width: 100%;
           height: .5333rem;
-        }
-        
+        }  
         .iconRank{
           background: url("../image/rank1.png") no-repeat center;
           background-size: 100%;
@@ -103,23 +82,32 @@ export default {
           font-size: .24rem;
           text-align: center;
           margin-top: .14rem;
+          color: #000000;
+        }
+        a{
+          text-decoration-line: none
         }
       }
     }
+      .router-link-active .iconHome{
+        background: url("../image/home2.png") no-repeat center;
+        background-size: 100%;
+        width: 100%;
+        height: .5333rem;
+      }
+      .router-link-active .iconRank{
+        background: url("../image/rank2.png") no-repeat center;
+        background-size: 100%;
+        width: 100%;
+        height: .5333rem;
+      } 
+      .router-link-active .iconRegulation{
+        background: url("../image/regulation2.png") no-repeat center;
+        background-size: 100%;
+        width: 100%;
+        height: .5333rem;
+      }
        
-        .iconRank1{
-          background: url("../image/rank2.png") no-repeat center;
-          background-size: 100%;
-          width: 100%;
-          height: .5333rem;
-        }
-        .iconRegulation1{
-          background: url("../image/regulation2.png") no-repeat center;
-          background-size: 100%;
-          width: 100%;
-          height: .5333rem;
-        }
-
 }
 
 

@@ -6,7 +6,9 @@
         <ul >
           <li class="clearfix">
             <h1 class="author">{{author}}</h1>
-            <div class="voteBtn" v-on:click='getVote'>投票</div>
+            <router-link to="/Individualdisplay" > 
+              <div class="voteBtn">投票</div>
+            </router-link>
           </li>
           <li class="clearfix">
             <div class="number">编号<span>{{number}}</span></div>
@@ -20,7 +22,6 @@
 
 <script>
 export default {
-  name : 'Showcase',
   data(){
     return{
       author:'作者',
@@ -89,6 +90,10 @@ export default {
       text-align: center;
       font-size: .24rem;
       line-height: .48rem;
+      color: #000;
+    }
+    a{
+      text-decoration-line: none
     }
     .number{
       color: #333333;

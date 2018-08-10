@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 export var router = new VueRouter({
   routes: [
     {
-    path: '/Vote',
+    path: '/',
     name: 'Vote',
     component: resolve => require(['pages/Vote'], resolve)
   },{

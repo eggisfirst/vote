@@ -6,21 +6,21 @@
             <ol>
               <li></li>
               <li>参赛数</li>
-              <li id="">66666</li>
+              <li id="">{{takePartNum}}</li>
             </ol>
           </li>
           <li>
             <ol>
               <li></li>
               <li>投票数</li>
-              <li id="">66666</li>
+              <li id="">{{voteAllNum}}</li>
             </ol>
           </li>
           <li>
             <ol>
               <li></li>
               <li>访问量</li>
-              <li id="">66666</li>
+              <li id="">{{visitNum}}</li>
             </ol>
           </li>
         </ul>
@@ -35,7 +35,16 @@
 
 <script>
 export default {
-  
+  data(){
+    return{
+      takePartNum:666,//人数的总和
+      voteAllNum:666,//投票数等于每个人的票数的总和
+      visitNum:666  //访问量？？？
+    }
+  },
+  computed:{
+      
+    }
 }
 </script>
 

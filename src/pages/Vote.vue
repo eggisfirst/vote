@@ -24,7 +24,6 @@ import Banner from "../components/Banner";
 import Count from "../components/Count"
 
 export default {
-  name: "home",
   components: {
     Search,
     Showcase,
@@ -37,9 +36,36 @@ export default {
       // peopleNum : '',
       // allVoteNum :' ',
       // visitedNme : '',
-      n:20
-    };
+      n:20,
+      p:[
+        {
+          name:'xiaohuang',
+          num:1,
+          work:"../image/rank1.png",
+          intruduce:"hello1"
+        },
+        {
+          name:'xiaohuang',
+          num:2,
+          work:"../image/bg.png",
+          intruduce:"hello2"
+        },
+        {
+          name:'xiaohuang',
+          num:3,
+          work:"../image/rank1.png",
+          intruduce:"hello3"
+        },
+        {
+          name:'xiaohuang',
+          num:4,
+          work:"../image/bg.png",
+          intruduce:"hello4"
+        }
+      ]
+    }
   },
+  props:['p'],
   computed: {
     //监听参赛数 投票数 访问量的变化
   },

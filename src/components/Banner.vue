@@ -1,7 +1,6 @@
 <template>
   <div class="Banner">
      <div class="banner">
-      背景图片
     </div>
   </div>
 </template>
@@ -14,9 +13,9 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
+  background: url("../image/bg.jpg");
+  background-size: 100%;
   width: 10rem;
   height: 5.87rem;
-  border: 1px solid red;
-  box-sizing: border-box;
 }
 </style>
