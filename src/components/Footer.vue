@@ -89,19 +89,20 @@ export default {
         }
       }
     }
-      .router-link-active .iconHome{
+    //当路由生效当时候class样式改变
+      .router-link-exact-active .iconHome{
         background: url("../image/home2.png") no-repeat center;
         background-size: 100%;
         width: 100%;
         height: .5333rem;
       }
-      .router-link-active .iconRank{
+      .router-link-exact-active .iconRank{
         background: url("../image/rank2.png") no-repeat center;
         background-size: 100%;
         width: 100%;
         height: .5333rem;
       } 
-      .router-link-active .iconRegulation{
+      .router-link-exact-active .iconRegulation{
         background: url("../image/regulation2.png") no-repeat center;
         background-size: 100%;
         width: 100%;

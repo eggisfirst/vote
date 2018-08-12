@@ -1,8 +1,11 @@
 <template>
   <div class="Showcase">
-    <div class="item">
+    <ul>
+    <li class="item"  v-for ="i in n" :key="i">
       <div class="content">
-        <div class="pic"></div>
+        <div class="pic">
+          <img v-bind:src ="`${mainParams.pictureUrl[i]}`" alt="参赛作品">  
+        </div>
         <ul >
           <li class="clearfix">
             <h1 class="author">{{author}}</h1>
@@ -16,7 +19,8 @@
           </li>
         </ul>
       </div>
-    </div>
+    </li>
+    </ul>
   </div>
 </template>
 
@@ -26,8 +30,9 @@ export default {
     return{
       author:'作者',
       number:'666',
-      voteNum : '666'
-    }
+      voteNum : '666',
+       n:9
+      }
   },
   methods : {
     //点击投票按钮,投票数增加，跳转到个人页面
@@ -38,7 +43,10 @@ export default {
   },
   computed :{
     
-  }
+  },
+  props:[
+    'mainParams'
+  ]
 }
 </script>
 
@@ -52,9 +60,9 @@ export default {
   }
 .Showcase{
   width: 4.5066rem;
-  padding-top: .32rem;
   .item{
     break-inside: avoid;   
+     margin-bottom: 0.34rem;
   }
   .content{
   display: flex;
@@ -63,13 +71,9 @@ export default {
   flex-direction: column;
   box-shadow: 0 0 0.133rem 0
     #e5e5e5;
-   .pic{
-     //上传的背景是变量
-     background: url('../image/rank1.png') no-repeat center;
-     background-size: 100%;
+   .pic img{
+     //上传的背景是变量 
      width: 4.5066rem;
-     height: 5rem;
-     border: 1px solid red
    }
    ul{
     width: 4rem;
@@ -108,9 +112,7 @@ export default {
       color: #333333
     }
     }
-   }
-  
-
+   } 
 }
 
 

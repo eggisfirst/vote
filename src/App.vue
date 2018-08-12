@@ -6,7 +6,7 @@
 <!--     <router-link to="/hello">page1</router-link>
     <router-link to="/world">page2</router-link> -->
     <!-- <compentHome></compentHome>
-     --><router-view></router-view>
+     --><router-view v-bind:mainParams="mainParams"></router-view>
   </div>
 </template>
 
@@ -14,13 +14,59 @@
 // import ComponentHello from './components/Hello.vue'
 import {flexible} from './js/lib/properScreen.js'
 import {flexibleCss} from './js/lib/properScreen_css.js'
+// import axios from 'axios'
+// import eggis from "../nameSpace"
 flexible();
 flexibleCss();
 import compentHome from './pages/home.vue'
 export default{
   name: 'app',
   // components: {ComponentHello}
-  components: {compentHome}
+  components: {compentHome},
+  data(){
+    return{
+      mainParams:{//接口获得的参数
+         pictureIntroduce:'这是我的作品这是我的作品这是我的作品这是我的作品',//作品介绍
+         pictureUrl:[//个人作品图片
+        "../static/images/bg4.jpg",
+        "../static/images/bg.jpg",
+        "../static/images/giftBox.png",
+         "../static/images/pic.png",
+         "../static/images/gift-bag.png",
+        "../static/images/bg.jpg",
+        "../static/images/giftBox.png",
+         "../static/images/old-man.png",
+         "../static/images/pic.png",
+        "../static/images/bg.jpg",
+        "../static/images/giftBox.png",
+         "../static/images/bg4.jpg"
+      ],
+      takePatrInNum:54445,
+      voteAllNum:123456,
+      visitAllNum:123456
+      }
+      
+    }
+  },
+  methods:{
+    getVote() { 
+      axios.get(`${eggis.path}getActivityInfo`, {
+        params: {
+          activityId: '1006378872980049921',
+          unionId: 'sss'
+        }
+      })
+      .then(function (res) {
+        console.log(data)
+        if (res.data) {
+          _this.variable.persons.push(res.data.data)
+        }
+        console.log(222333444, _this.state.persons)
+      })
+      .catch(function (res) {
+      })
+    }
+}
 }
 </script>
 

@@ -20,11 +20,14 @@
           </li>
         </ul>
       </div>
-      <div class="works" v-for="i in o"></div> 
-      <div class="describe"></div>
+      <div class="works">
+        <img :src="`${mainParams.pictureUrl[7]}`" alt="" v-for="i in o" :key='i'>
+      </div> 
+      <div class="describe">
+        {{mainParams.pictureIntroduce}}
+      </div>
       <button v-bind:class="`${btn}`" v-on:click ='votebtnClick'>{{btnTips}}</button>
     </div>
-    <Footer/>
   </div>
  
 </template>
@@ -41,7 +44,7 @@ export default {
     Footer,
     Banner
     },
-  props:['number','author','x','y','z'],
+  props:['number','author','x','y','z','mainParams'],
   data(){
     return{
       btn:'vote_btn',
@@ -121,18 +124,21 @@ body {
       border-bottom: none;
     }
   }
-  .works{
+  .works img{
     width: 100%;
     height: 5.6rem;
-    background-color: #e8e8e8;
     border-radius: .053rem;
     margin-bottom: .133rem;
   }
   .describe{
-    width: 100%;
+    width: 9.36rem;
     height: 1.64rem;
     background-color: #f0f0f0;
 	  border-radius: .053rem;
+    padding: .586rem .32rem;
+    box-sizing: border-box;
+    overflow: auto;
+   
   }
   .vote_btn{
     background-image: linear-gradient(0deg, 
@@ -154,7 +160,7 @@ body {
     font-weight: bold;
     line-height: .48rem;
     color: #000000;
-    margin: .4rem 3rem 2.26rem;
+    margin: .4rem 3rem 1rem;
   }
   .vote_btn1{
     background-color: #ccc;
@@ -169,7 +175,7 @@ body {
       inset 0px .0266rem 0px 0px 
       rgba(255, 255, 255, 0.35);
     border-radius: .053rem;
-    margin: .4rem 3rem 2.26rem;
+    margin: .4rem 3rem 1rem;
   }
 }
 

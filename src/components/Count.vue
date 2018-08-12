@@ -1,26 +1,26 @@
 <template>
   <div class="Count">
-     <div class="count">
+     <div class="count" >
         <ul class="clearfix">
           <li>
             <ol>
               <li></li>
               <li>参赛数</li>
-              <li id="">{{takePartNum}}</li>
+              <li id="">{{mainParams.takePatrInNum}}</li>
             </ol>
           </li>
           <li>
             <ol>
               <li></li>
               <li>投票数</li>
-              <li id="">{{voteAllNum}}</li>
+              <li id="">{{mainParams.voteAllNum}}</li>
             </ol>
           </li>
           <li>
             <ol>
               <li></li>
               <li>访问量</li>
-              <li id="">{{visitNum}}</li>
+              <li id="">{{mainParams.visitAllNum}}</li>
             </ol>
           </li>
         </ul>
@@ -37,11 +37,9 @@
 export default {
   data(){
     return{
-      takePartNum:666,//人数的总和
-      voteAllNum:666,//投票数等于每个人的票数的总和
-      visitNum:666  //访问量？？？
     }
   },
+  props:['mainParams'],
   computed:{
       
     }
