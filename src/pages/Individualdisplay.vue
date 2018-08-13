@@ -92,12 +92,13 @@ mounted(){
 },
 methods:{
   votebtnClick(){
-  this.$emit('transvotenum',this.test)
+  
     if(this.turn){
       this.btn = 'vote_btn1'
       this.btnTips = '已投票'
       this.test +=1
       this.turn = false 
+      this.$emit('transvotenum',this.test)
       return this.test
     }else{
 
