@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     getVote(){
-      console.log(this.pathU)
     }
   },
   props:[
@@ -58,11 +57,11 @@ export default {
 
 <style lang = 'scss' scoped>
 @font-face {
-  font-family: "PINGPANG";
-  src: url("../font-family/HelveticaHv.ttf");
+  font-family: "PINGPANGM";
+  src: url("../font-family/PingFang Medium.ttf");
 }
 body {
-  font-family: "PINGPANG";
+  font-family: "PINGPANGM";
 }
 .wrapper {
   width: 9.36rem;

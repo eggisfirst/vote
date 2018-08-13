@@ -9,7 +9,7 @@
           <th>票数</th>
           <th>编号</th>
         </tr> 
-        <tr v-for="i in numOfPartipants">
+        <tr v-for="i in numOfPartipants" :key='i'>
           <td>{{i}}</td>
           <td>Tina</td>
           <td>666</td>

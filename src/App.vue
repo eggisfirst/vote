@@ -14,8 +14,8 @@
 // import ComponentHello from './components/Hello.vue'
 import {flexible} from './js/lib/properScreen.js'
 import {flexibleCss} from './js/lib/properScreen_css.js'
-// import axios from 'axios'
-// import eggis from "../nameSpace"
+import axios from 'axios'
+import {eggis} from './nameSpace/index.js'
 flexible();
 flexibleCss();
 import compentHome from './pages/home.vue'
@@ -26,7 +26,7 @@ export default{
   data(){
     return{
       mainParams:{//接口获得的参数
-         pictureIntroduce:'这是我的作品这是我的作品这是我的作品这是我的作品',//作品介绍
+         pictureIntroduce:'这是我的作品',//作品介绍
          pictureUrl:[//个人作品图片
         "../static/images/bg4.jpg",
         "../static/images/bg.jpg",
@@ -41,9 +41,12 @@ export default{
         "../static/images/giftBox.png",
          "../static/images/bg4.jpg"
       ],
-      takePatrInNum:54445,
+      peopleAllNum:54445,
       voteAllNum:123456,
-      visitAllNum:123456
+      visitAllNum:123456,
+      author:['chen','li','wei','yang','w','d','s','d','z'],
+      number:[1,2,3,4,5,6,7,8,9],
+      vote:[]
       }
       
     }

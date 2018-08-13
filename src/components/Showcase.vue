@@ -4,18 +4,18 @@
     <li class="item"  v-for ="i in n" :key="i">
       <div class="content">
         <div class="pic">
-          <img v-bind:src ="`${mainParams.pictureUrl[i]}`" alt="参赛作品">  
+          <img v-bind:src ="`${mainParams.pictureUrl[i-1]}`" alt="参赛作品">  
         </div>
         <ul >
           <li class="clearfix">
-            <h1 class="author">{{author}}</h1>
+            <h1 class="author">{{mainParams.author[i-1]}}</h1>
             <router-link to="/Individualdisplay" > 
-              <div class="voteBtn">投票</div>
+              <div class="voteBtn" v-on:click='btnClick()'>投票</div>
             </router-link>
           </li>
           <li class="clearfix">
-            <div class="number">编号<span>{{number}}</span></div>
-            <div class="voteNum">票数<span>{{voteNum}}</span></div>
+            <div class="number">编号&nbsp;{{mainParams.number[i-1]}}<span></span></div>
+            <div class="voteNum">票数&nbsp;<span>{{i}}</span></div>
           </li>
         </ul>
       </div>
@@ -25,21 +25,25 @@
 </template>
 
 <script>
+import bus from '../js/eventBus'
 export default {
   data(){
     return{
       author:'作者',
       number:'666',
       voteNum : '666',
-       n:9
+       n:9,
+       message:'hello'
       }
   },
   methods : {
     //点击投票按钮,投票数增加，跳转到个人页面
-    getVote : function(){
-      this.voteNum ++
+    btnClick:function(){
+      
+      bus.$emit('userDefinedEvent',this.message)
+      
     }
-    //aj把数据传进来，获得data里的变量
+    
   },
   computed :{
     
@@ -63,12 +67,14 @@ export default {
   .item{
     break-inside: avoid;   
      margin-bottom: 0.34rem;
+     
   }
   .content{
   display: flex;
   background-color: #fff;
 	border-radius: .1066rem;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   box-shadow: 0 0 0.133rem 0
     #e5e5e5;
    .pic img{

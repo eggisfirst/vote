@@ -8,7 +8,7 @@
        <h1>活动规则</h1>
        <div class="content">
          <ul>
-           <li v-for="(i,index) in p">1.活动规则活动规则活动规则活动规则活动</li>
+           <li v-for="i in p" :key='i'>1.活动规则活动规则活动规则活动规则活动</li>
          </ul>
        </div>
      </div>
@@ -17,7 +17,7 @@
        <hr>
        <div class="content ">
        <ul>
-         <li v-for='(i,index) in t'>5.活动规则活动规则活动规则活动规则活动</li>
+         <li v-for='i in t' :key='i'>5.活动规则活动规则活动规则活动规则活动</li>
        </ul>
        </div>
      </div>

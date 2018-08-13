@@ -1,14 +1,15 @@
 <template>
   <div class="Individualdisplay">
     <Banner/>
+    
     <div class="wrapper">
       <div class="profile">
-        <p>编号:&nbsp;{{number}}&nbsp;{{author}}</p>
+        <p>编号:&nbsp;{{mainParams.number[0]}}&nbsp;{{mainParams.author[0]}}</p>
         <hr>
         <ul class="clearfix">
           <li>
-            <div>{{x}}1</div>
-            <p>总票数</p>
+            <div>{{voteNum}}1</div>
+            <p>总票数{{message}}</p>
           </li>
           <li>
             <div>{{y}}1</div>
@@ -38,24 +39,39 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner"
+import bus from '../js/eventBus'
 
 export default {
   components:{
     Footer,
     Banner
     },
-  props:['number','author','x','y','z','mainParams'],
+  props:['x','y','z','mainParams'],
   data(){
     return{
       btn:'vote_btn',
       btnTips:'为他投票',
-      o:4
+      o:4,
+      voteNum:'',
+      message:''
     }
+},
+created(){
+  this.sendMessage()
 },
 methods:{
   votebtnClick(){
     this.btn = 'vote_btn1'
     this.btnTips = '已投票'
+   
+  },
+  sendMessage(){
+    
+    var self = this
+    bus.$on('userDefinedEvent',function(message){
+      self.message = message
+      console.log(self.message)
+    })
   }
 }
 }

@@ -6,7 +6,7 @@
             <ol>
               <li></li>
               <li>参赛数</li>
-              <li id="">{{mainParams.takePatrInNum}}</li>
+              <li id="">{{mainParams.peopleAllNum}}</li>
             </ol>
           </li>
           <li>
@@ -47,6 +47,13 @@ export default {
 </script>
 
 <style lang="scss" scoped> 
+@font-face{
+  font-family: "PINGPANGM";
+  src: url("../font-family/PingFang Medium.ttf");
+}
+html{
+  font-family: "PINGPANGM";
+}
 .count {
     width: 100%;
     height: 3.333rem;
