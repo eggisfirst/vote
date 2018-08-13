@@ -4,25 +4,26 @@
     
     <div class="wrapper">
       <div class="profile">
-        <p>编号:&nbsp;{{mainParams.number[0]}}&nbsp;{{mainParams.author[0]}}</p>
+        <p>编号:&nbsp;{{mainParams.number[this.$route.params.name - 1]}}&nbsp;{{mainParams.author[this.$route.params.name - 1]}}</p>
         <hr>
         <ul class="clearfix">
           <li>
-            <div>{{voteNum}}1</div>
-            <p>总票数{{message}}</p>
+            <div>{{test}}</div>
+            <p>总票数</p>
           </li>
           <li>
-            <div>{{y}}1</div>
+            <div>0</div>
             <p>当前排名</p>
           </li>
           <li>
-            <div>{{z}}1</div>
+            <div>0</div>
             <p>围观人数</p>
           </li>
         </ul>
       </div>
       <div class="works">
-        <img :src="`${mainParams.pictureUrl[7]}`" alt="" v-for="i in o" :key='i'>
+        <img :src="`${mainParams.pictureUrl[num -1 ]}`" alt="个人作品" v-for="i in o" :key='i'>
+         
       </div> 
       <div class="describe">
         {{mainParams.pictureIntroduce}}
@@ -39,42 +40,76 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner"
-import bus from '../js/eventBus'
+
 
 export default {
   components:{
-    Footer,
     Banner
     },
-  props:['x','y','z','mainParams'],
+
   data(){
     return{
       btn:'vote_btn',
       btnTips:'为他投票',
       o:4,
       voteNum:'',
-      message:''
+      num:'',
+      zz:'',
+      turn:true,
+      test:0
+     
     }
 },
-created(){
-  this.sendMessage()
+props:['mainParams'],
+created(){//
+// console.log(this.vote1)
+// console.log(this.$route.params.name)
+},
+mounted(){
+    //判断传进来是数字还是姓名
+    // console.log(this.$route.params.name)
+    this.num = this.$route.params.name
+    console.log(this.num)
+    // console.log(name)
+    var xx = Number(this.num)
+    this.zz =Boolean(xx)
+    // console.log(this.zz)
+      if(this.zz){//数字
+      console.log('yes')
+      
+    }else{//非数字
+     
+      console.log('no')
+      console.log(this.$route.params.name)
+      
+      this.$route.params.name = 1
+      // console.log(this.$route.params.name)
+      this.num = this.$route.params.name 
+   }
+  
+ 
+ 
 },
 methods:{
   votebtnClick(){
-    this.btn = 'vote_btn1'
-    this.btnTips = '已投票'
-   
-  },
-  sendMessage(){
+  this.$emit('transvotenum',this.test)
+    if(this.turn){
+      this.btn = 'vote_btn1'
+      this.btnTips = '已投票'
+      this.test +=1
+      this.turn = false 
+      return this.test
+    }else{
+
+    }
     
-    var self = this
-    bus.$on('userDefinedEvent',function(message){
-      self.message = message
-      console.log(self.message)
-    })
+    
+  
+    
   }
 }
 }
+
 
 </script>
 

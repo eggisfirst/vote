@@ -19,7 +19,8 @@ export var router = new VueRouter({
     component: resolve => require(['pages/Rank'], resolve)
   },
   {
-    path: '/Individualdisplay',
+    // path: '/Individualdisplay/:id',
+    path: '/Individualdisplay/:name',
     name: 'Individualdisplay',
     component: resolve => require(['pages/Individualdisplay'], resolve)
   },

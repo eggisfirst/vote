@@ -1,7 +1,10 @@
 <template>
   <div class="Search">
-    <div class="icon-search" v-on:click="searchBox"></div>
-    <input type="text" v-if = 'onOff' v-model="inputValue" placeholder="inputValue" v-on:click = 'clickInput' >
+    <router-link :to="{path:'/Individualdisplay/'+ inputValue}" > 
+      <div class="icon-search" v-on:click="searchBox"></div>
+     </router-link>  
+      <input type="text" v-if = 'onOff' v-model="inputValue" placeholder="inputValue" v-on:click = 'clickInput' >
+  
   </div>
 </template>
 
@@ -11,9 +14,12 @@ export default {
   data(){
     return{
       inputValue : '输入编号或名称搜索投票',
-      onOff : 'true'
+      onOff : 'true',
+      number:''
     }
+    
   },
+  props:['mainParams'],
   methods:{
     //点击输入框文字隐藏，再次点击无效
     clickInput : function(){ 
@@ -25,7 +31,15 @@ export default {
     //点击搜索按钮获取搜索框里面的值
    searchBox : function(){
      var inputData = this.inputValue
-     console.log(inputData)
+    var n = 'one'
+     if(inputData == n){
+       inputData.val = 'yes'
+     }else{
+       inputData = 'no'
+     } 
+
+
+
    }
   }
 }

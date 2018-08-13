@@ -35,7 +35,8 @@ export default {
     return{
       numOfPartipants:20
     }
-  }
+  },
+  props:['mainParams']
 }
 </script>
 

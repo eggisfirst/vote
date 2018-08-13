@@ -6,7 +6,7 @@
 <!--     <router-link to="/hello">page1</router-link>
     <router-link to="/world">page2</router-link> -->
     <!-- <compentHome></compentHome>
-     --><router-view v-bind:mainParams="mainParams"></router-view>
+     --><router-view v-bind:mainParams="mainParams"  v-on:transvotenum='getvotenum'></router-view>
   </div>
 </template>
 
@@ -46,8 +46,10 @@ export default{
       visitAllNum:123456,
       author:['chen','li','wei','yang','w','d','s','d','z'],
       number:[1,2,3,4,5,6,7,8,9],
-      vote:[]
+      authorN:[{name:'chen',id:1},{name:'li',id:2},{name:'wei',id:3},{name:'yang',id:4}],
+      vote1:0
       }
+       
       
     }
   },
@@ -68,6 +70,10 @@ export default{
       })
       .catch(function (res) {
       })
+    },
+    getvotenum(msg){
+      this.mainParams.vote1 = msg
+     
     }
 }
 }

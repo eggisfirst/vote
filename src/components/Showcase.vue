@@ -9,13 +9,13 @@
         <ul >
           <li class="clearfix">
             <h1 class="author">{{mainParams.author[i-1]}}</h1>
-            <router-link to="/Individualdisplay" > 
+            <router-link :to="{path:'/Individualdisplay/'+mainParams.number[i-1]}" > 
               <div class="voteBtn" v-on:click='btnClick()'>投票</div>
             </router-link>
           </li>
           <li class="clearfix">
             <div class="number">编号&nbsp;{{mainParams.number[i-1]}}<span></span></div>
-            <div class="voteNum">票数&nbsp;<span>{{i}}</span></div>
+            <div class="voteNum">票数&nbsp;<span>{{mainParams.vote1}}</span></div>
           </li>
         </ul>
       </div>
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import bus from '../js/eventBus'
 export default {
   data(){
     return{
@@ -34,13 +33,14 @@ export default {
       voteNum : '666',
        n:9,
        message:'hello'
+      
       }
   },
   methods : {
     //点击投票按钮,投票数增加，跳转到个人页面
     btnClick:function(){
-      
-      bus.$emit('userDefinedEvent',this.message)
+     
+   
       
     }
     
@@ -49,7 +49,7 @@ export default {
     
   },
   props:[
-    'mainParams'
+    'mainParams','vote1'
   ]
 }
 </script>

@@ -1,8 +1,9 @@
 <template>
   <div class="rule">
    <Banner/>
+   
    <div class="wrapper">
-     <Count/>
+     <Count v-bind:mainParams="mainParams"/>
      <div class="activeRule">
        <div class="backgroundPicture"></div>
        <h1>活动规则</h1>
@@ -45,7 +46,8 @@ export default {
       p:7,
       t:5
     }
-  }
+  },
+  props:['mainParams']
 }
 </script>
 
