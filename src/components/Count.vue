@@ -6,14 +6,14 @@
             <ol>
               <li></li>
               <li>参赛数</li>
-              <li id="">{{mainParams.peopleAllNum}}</li>
+              <li id="">{{peopleAllNum}}</li>
             </ol>
           </li>
           <li>
             <ol>
               <li></li>
               <li>投票数</li>
-              <li id="">{{mainParams.voteAllNum}}</li>
+              <li id="">{{voteAllNum}}</li>
             </ol>
           </li>
           <li>
@@ -37,12 +37,30 @@
 export default {
   data(){
     return{
+      peopleAllNum:'',
+      voteAllNum:''
     }
   },
   props:['mainParams'],
   computed:{
       
+    },
+  created(){
+    // console.log(this.mainParams.authorN.length)
+    //获得参赛数
+    this.peopleAllNum = this.mainParams.authorN.length
+     var sumVote = 0
+     //遍历authorN，把每个人的投票数相加得到总的投票数
+    for(var item in this.mainParams.authorN){
+      // console.log(this.mainParams.authorN[item])
+      var everyAuItem = this.mainParams.authorN[item]
+      // console.log(everyAuItem.number)
+      sumVote += everyAuItem.number
+      // console.log(sumVote)
+      this.voteAllNum = sumVote 
     }
+    
+  }
 }
 </script>
 

@@ -9,11 +9,11 @@
           <th>票数</th>
           <th>编号</th>
         </tr> 
-        <tr v-for="i in numOfPartipants" :key='i'>
-          <td>{{i}}</td>
-          <td>Tina</td>
-          <td>666</td>
-          <td>0000</td>
+        <tr v-for="(t,index) in sortAuthord" >
+          <td>{{index + 1}}</td>
+          <td>{{t.name}}</td>
+          <td>{{t.number}}</td>
+          <td>{{t.id}}</td>
         </tr> 
       </table>
     </div>
@@ -33,10 +33,55 @@ export default {
   },
   data(){
     return{
-      numOfPartipants:20
+      numOfPartipants:'',
+      num:[],
+      maxVote:'',
+      t:''
     }
   },
-  props:['mainParams']
+  props:['mainParams'],
+  created(){
+    // console.log(this.mainParams.authorN)
+    this.numOfPartipants = this.mainParams.authorN.length
+    this.t = this.mainParams.authorN
+    console.log(this.t)
+    // for(var item in this.mainParams.authorN){
+    //  this.num = this.mainParams.authorN[item]
+    //  console.log(this.num.number)
+    // }
+    // console.log(this.mainParams.authorN[2].number)
+    //比较得出最大的票数
+    //  var auN = this.mainParams.authorN
+    //  var max = 0
+    // for(var i = 0; i < this.numOfPartipants; i ++){
+    //   max = max > auN[i].number ? max : auN[i].number
+    //   this.maxVote = max
+    // }
+    
+    // console.log(max)
+   
+  },
+  methods:{//对数字排序
+    // sortNumbers : function(a,b){
+    //   return a - b 
+    // },
+    //对数组里面的数进行排序
+    sortByKey : function(array,key) {
+      return array.sort(function(b,a){
+        var x = a[key]
+        var y = b[key]
+        return((x<y)?-1:((x>y)?1:0))
+      })
+    }
+  },
+  computed:{
+    // sortNumbers : function() {
+    //   return this.numbers.sort(sortNumbers)
+    // },
+    sortAuthord : function() {
+      return this.sortByKey(this.t,'number')
+    }
+  }
 }
 </script>
 

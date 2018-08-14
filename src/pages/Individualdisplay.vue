@@ -75,13 +75,10 @@ mounted(){
     this.zz =Boolean(xx)
     // console.log(this.zz)
       if(this.zz){//数字
-      console.log('yes')
-      
+      console.log('yes')      
     }else{//非数字
-     
       console.log('no')
-      console.log(this.$route.params.name)
-      
+      console.log(this.$route.params.name)   
       this.$route.params.name = 1
       // console.log(this.$route.params.name)
       this.num = this.$route.params.name 

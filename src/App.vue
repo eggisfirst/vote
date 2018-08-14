@@ -41,12 +41,11 @@ export default{
         "../static/images/giftBox.png",
          "../static/images/bg4.jpg"
       ],
-      peopleAllNum:54445,
-      voteAllNum:123456,
       visitAllNum:123456,
       author:['chen','li','wei','yang','w','d','s','d','z'],
       number:[1,2,3,4,5,6,7,8,9],
-      authorN:[{name:'chen',id:1},{name:'li',id:2},{name:'wei',id:3},{name:'yang',id:4}],
+      authorN:[{name:'chen',id:1,number:3},{name:'li',id:2,number:10},{name:'wei',id:3,number:2},{name:'yang',id:4,number:1},
+      {name:'x',id:5,number:50},{name:'q',id:6,number:14},{name:'g',id:7,number:33}],
       vote1:0
       }
        

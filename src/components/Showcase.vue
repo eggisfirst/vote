@@ -3,19 +3,17 @@
     <ul>
     <li class="item"  v-for ="i in n" :key="i">
       <div class="content">
-        <div class="pic">
+        <router-link :to="{path:'/Individualdisplay/'+mainParams.number[i-1]}"> 
           <img v-bind:src ="`${mainParams.pictureUrl[i-1]}`" alt="参赛作品">  
-        </div>
+         </router-link>
         <ul >
           <li class="clearfix">
-            <h1 class="author">{{mainParams.author[i-1]}}</h1>
-            <router-link :to="{path:'/Individualdisplay/'+mainParams.number[i-1]}" > 
-              <div class="voteBtn" v-on:click='btnClick()'>投票</div>
-            </router-link>
+            <h1 class="author">{{mainParams.author[i-1]}}</h1> 
+              <div v-bind:class="`${btn}`" v-on:click='btnClick()'>{{btnTips}}</div>
           </li>
           <li class="clearfix">
             <div class="number">编号&nbsp;{{mainParams.number[i-1]}}<span></span></div>
-            <div class="voteNum">票数&nbsp;<span>{{mainParams.vote1}}</span></div>
+            <div class="voteNum">票数&nbsp;<span>{{x[`${i}` + '.' +'number']}}</span></div>
           </li>
         </ul>
       </div>
@@ -31,17 +29,24 @@ export default {
       author:'作者',
       number:'666',
       voteNum : '666',
-       n:9,
-       message:'hello'
+      n:9,
+      message:'hello',
+      btnTips:'投票',
+      btn:'voteBtn',
+      test:0,
+      turn:true
       
       }
   },
   methods : {
     //点击投票按钮,投票数增加，跳转到个人页面
     btnClick:function(){
-     
-   
-      
+     this.btn = 'voteBtn1'
+     this.btnTips = '已投票'   
+     this.test +=1
+     this.turn = false 
+     this.$emit('transvotenum',this.test)
+     return this.test
     }
     
   },
@@ -50,7 +55,11 @@ export default {
   },
   props:[
     'mainParams','vote1'
-  ]
+  ],
+  created(){
+    console.log(this.mainParams.authorN)
+    this.x = this.mainParams.authorN
+  }
 }
 </script>
 
@@ -77,7 +86,7 @@ export default {
   flex-wrap: wrap;
   box-shadow: 0 0 0.133rem 0
     #e5e5e5;
-   .pic img{
+   img{
      //上传的背景是变量 
      width: 4.5066rem;
    }
@@ -96,11 +105,22 @@ export default {
       width:1.24rem;
       height: .48rem;
       background-color: #ffdb7f;
-      border-radius: .053REM;
+      border-radius: .053rem;
       text-align: center;
       font-size: .24rem;
       line-height: .48rem;
       color: #000;
+    }
+    .voteBtn1{
+      float: right;
+      width:1.24rem;
+      height: .48rem;
+      background-color:  #ccc;
+      border-radius: .053rem;
+      text-align: center;
+      font-size: .24rem;
+      line-height: .48rem;
+      color: #666;
     }
     a{
       text-decoration-line: none
