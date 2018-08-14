@@ -1,19 +1,19 @@
 <template>
   <div class="Showcase">
     <ul>
-    <li class="item"  v-for ="i in n" :key="i">
+    <li class="item"  v-for ="(i,index) in x" :key="index">
       <div class="content">
-        <router-link :to="{path:'/Individualdisplay/'+mainParams.number[i-1]}"> 
+        <router-link :to="{path:'/Individualdisplay/'+ mainParams.number[i-1]}"> 
           <img v-bind:src ="`${mainParams.pictureUrl[i-1]}`" alt="参赛作品">  
          </router-link>
         <ul >
           <li class="clearfix">
             <h1 class="author">{{mainParams.author[i-1]}}</h1> 
-              <div v-bind:class="`${btn}`" v-on:click='btnClick()'>{{btnTips}}</div>
+              <div v-bind:class="`${btn}`"  v-on:click='btnClick()'>{{btnTips}}</div>
           </li>
           <li class="clearfix">
             <div class="number">编号&nbsp;{{mainParams.number[i-1]}}<span></span></div>
-            <div class="voteNum">票数&nbsp;<span>{{x[`${i}` + '.' +'number']}}</span></div>
+            <div class="voteNum">票数&nbsp;<span>{{mainParams.voteNum[i - 1]}}</span></div>
           </li>
         </ul>
       </div>
@@ -26,27 +26,30 @@
 export default {
   data(){
     return{
-      author:'作者',
-      number:'666',
-      voteNum : '666',
-      n:9,
-      message:'hello',
       btnTips:'投票',
       btn:'voteBtn',
       test:0,
-      turn:true
+      turn:true,
+      status:false,
+      index:''
       
       }
   },
   methods : {
     //点击投票按钮,投票数增加，跳转到个人页面
     btnClick:function(){
-     this.btn = 'voteBtn1'
-     this.btnTips = '已投票'   
-     this.test +=1
-     this.turn = false 
-     this.$emit('transvotenum',this.test)
-     return this.test
+      
+    //  console.log(this.mainParams.authorN)
+    //  console.log(this.key)
+     
+        this.btn = 'voteBtn1'
+        this.btnTips = '已投票'   
+        this.test += 1
+        this.turn = false 
+        this.$emit('transvotenum',this.test)
+        return this.test
+     
+    
     }
     
   },
@@ -56,21 +59,15 @@ export default {
   props:[
     'mainParams','vote1'
   ],
-  created(){
-    console.log(this.mainParams.authorN)
-    this.x = this.mainParams.authorN
+  created(){//获取数量
+    // console.log(this.mainParams.authorN[0].status)
+    this.x = this.mainParams.authorN.length
+    // console.log(this.key)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-    font-family: 'PINGPANG';
-    src: url('../font-family/HelveticaHv.ttf');
-  }
-  body{
-    font-family: 'PINGPANG';
-  }
 .Showcase{
   width: 4.5066rem;
   .item{

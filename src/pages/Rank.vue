@@ -86,14 +86,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: "PINGPANG";
-  src: url("../font-family/HelveticaHv.ttf");
-}
-body {
-  font-family: "PINGPANG";
-}
-
 .Rank{
   width: 100%;
   .banner{

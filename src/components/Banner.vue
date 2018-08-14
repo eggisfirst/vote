@@ -1,7 +1,8 @@
 <template>
   <div class="Banner">
-     <div class="banner">
+    <div class="banner">
     </div>
+ 
   </div>
 </template>
 
@@ -18,4 +19,5 @@ export default {
   width: 10rem;
   height: 5.87rem;
 }
+  
 </style>

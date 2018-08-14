@@ -3,7 +3,7 @@
     <Banner/>
     <div class="wrapper">
       <Count v-bind:mainParams="mainParams"/>
-      <Search/>
+      <Search class="search"/>
       <div class="works">
         <Showcase v-bind:mainParams="mainParams"/>
       </div>
@@ -56,13 +56,6 @@ export default {
 </script>
 
 <style lang = 'scss' scoped>
-@font-face {
-  font-family: "PINGPANGM";
-  src: url("../font-family/PingFang Medium.ttf");
-}
-body {
-  font-family: "PINGPANGM";
-}
 .wrapper {
   width: 9.36rem;
   margin: 0 auto;
@@ -72,6 +65,9 @@ body {
    column-count: 2;
    margin-bottom: 1.5rem;
    margin-top: 0.34rem
+ }
+ .search{
+   position: relative;
  }
 
  

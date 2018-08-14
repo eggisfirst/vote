@@ -112,15 +112,6 @@ methods:{
 </script>
 
 <style lang="scss" scoped>
-
-@font-face {
-  font-family: "PINGPANG";
-  src: url("../font-family/HelveticaHv.ttf");
-}
-body {
-  font-family: "PINGPANG";
-}
-
 .Individualdisplay{
   width: 100%;
 .wrapper{

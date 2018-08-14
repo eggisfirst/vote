@@ -44,9 +44,11 @@ export default{
       visitAllNum:123456,
       author:['chen','li','wei','yang','w','d','s','d','z'],
       number:[1,2,3,4,5,6,7,8,9],
-      authorN:[{name:'chen',id:1,number:3},{name:'li',id:2,number:10},{name:'wei',id:3,number:2},{name:'yang',id:4,number:1},
-      {name:'x',id:5,number:50},{name:'q',id:6,number:14},{name:'g',id:7,number:33}],
-      vote1:0
+      voteNum:[3,10,2,1,50,14,33],
+      authorN:[{name:'chen',id:1,number:3,status:false},{name:'li',id:2,number:10,status:false},{name:'wei',id:3,number:2,status:false},{name:'yang',id:4,number:1,status:false},
+      {name:'x',id:5,number:50,status:false},{name:'q',id:6,number:14,status:false},{name:'g',id:7,number:33,status:false}],
+      vote1:0,
+      change:''
       }
        
       
@@ -79,7 +81,13 @@ export default{
 </script>
 
 <style lang="scss">
-
+@font-face {
+    font-family: 'PINGPANG';
+    src: url('./font-family/HelveticaHv.ttf');
+  }
+  body{
+    font-family: 'PINGPANG'!important;
+  }
 
 //变量
 $fontcolor: #fff;

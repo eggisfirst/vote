@@ -1,10 +1,12 @@
 <template>
   <div class="Search">
-    <router-link :to="{path:'/Individualdisplay/'+ inputValue}" > 
+    <!-- <router-link :to="{path:'/Individualdisplay/'+ inputValue}" >  -->
       <div class="icon-search" v-on:click="searchBox"></div>
-     </router-link>  
+     <!-- </router-link>   -->
       <input type="text" v-if = 'onOff' v-model="inputValue" placeholder="inputValue" v-on:click = 'clickInput' >
-  
+         <div class="alertTips">
+      <p>您的输入有误</p>
+    </div> 
   </div>
 </template>
 
@@ -19,6 +21,9 @@ export default {
     }
     
   },
+  created(){
+   
+  },
   props:['mainParams'],
   methods:{
     //点击输入框文字隐藏，再次点击无效
@@ -31,28 +36,35 @@ export default {
     //点击搜索按钮获取搜索框里面的值
    searchBox : function(){
      var inputData = this.inputValue
+     console.log(inputData)
+      if(isNaN(inputData)){//输入错误弹出提示框，2s后消失
+        var addTips = document.getElementsByClassName('alertTips')[0]
+        addTips.style.top = '-9.7rem'
+        addTips.style.transition = '1.5s'
+        this.time()
+    }else{
+       this.$router.push({path:'/Individualdisplay/' + inputData})
+    }
     var n = 'one'
      if(inputData == n){
        inputData.val = 'yes'
      }else{
        inputData = 'no'
      } 
-
-
-
+   },
+   time : function(){
+      var timer = setInterval(function(){
+        var addTips = document.getElementsByClassName('alertTips')[0]
+        addTips.style.top = '-10.64rem'
+        clearInterval(timer);
+      },2000)
+    
    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
- @font-face {
-    font-family: 'PINGPANG';
-    src: url('../font-family/HelveticaHv.ttf');
-  }
-  body{
-    font-family: 'PINGPANG';
-  }
 .Search{
   width: 9.33rem;
   height: 1.066rem;
@@ -78,6 +90,22 @@ export default {
     color: #8b8b8b;
     position: absolute;
     left:1.05rem
+  }
+  .alertTips{
+    width:  10rem;
+    height: .64rem;
+    background-color: #fe0000;;
+    opacity: 0.8;
+    color: #fff;
+    line-height: .64rem;
+    position: absolute;
+    top: -10.64rem;
+    left: -.33rem;
+    display: block;
+    box-sizing: border-box;
+    p{
+      text-align: center;
+    }
   }
 }
 

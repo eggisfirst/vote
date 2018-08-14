@@ -65,13 +65,6 @@ export default {
 </script>
 
 <style lang="scss" scoped> 
-@font-face{
-  font-family: "PINGPANGM";
-  src: url("../font-family/PingFang Medium.ttf");
-}
-html{
-  font-family: "PINGPANGM";
-}
 .count {
     width: 100%;
     height: 3.333rem;

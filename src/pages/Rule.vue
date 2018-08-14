@@ -53,13 +53,6 @@ export default {
 
 
 <style lang="scss" scoped>
-@font-face {
-  font-family: "PINGPANG";
-  src: url("../font-family/HelveticaHv.ttf");
-}
-body {
-  font-family: "PINGPANG";
-}
 .wrapper{
   width: 9.36rem;
   margin: 0 auto;
