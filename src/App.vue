@@ -15,7 +15,7 @@
 import {flexible} from './js/lib/properScreen.js'
 import {flexibleCss} from './js/lib/properScreen_css.js'
 import axios from 'axios'
-import {eggis} from './nameSpace/index.js'
+import eggis from './nameSpace/index.js'
 flexible();
 flexibleCss();
 import compentHome from './pages/home.vue'
@@ -27,20 +27,7 @@ export default{
     return{
       mainParams:{//接口获得的参数
          pictureIntroduce:'这是我的作品',//作品介绍
-         pictureUrl:[//个人作品图片
-        "../static/images/bg4.jpg",
-        "../static/images/bg.jpg",
-        "../static/images/giftBox.png",
-         "../static/images/pic.png",
-         "../static/images/gift-bag.png",
-        "../static/images/bg.jpg",
-        "../static/images/giftBox.png",
-         "../static/images/old-man.png",
-         "../static/images/pic.png",
-        "../static/images/bg.jpg",
-        "../static/images/giftBox.png",
-         "../static/images/bg4.jpg"
-      ],
+         
       visitAllNum:123456,
       author:['chen','li','wei','yang','w','d','s','d','z'],
       number:[1,2,3,4,5,6,7,8,9],
@@ -83,7 +70,7 @@ export default{
 <style lang="scss">
 @font-face {
     font-family: 'PINGPANG';
-    src: url('./font-family/HelveticaHv.ttf');
+    src: url('/font-family/HelveticaHv.ttf');
   }
   body{
     font-family: 'PINGPANG'!important;

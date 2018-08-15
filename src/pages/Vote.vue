@@ -62,9 +62,7 @@ export default {
   margin-top: 0.1866rem;
  .works{
    width: 100%;
-   column-count: 2;
-   margin-bottom: 1.5rem;
-   margin-top: 0.34rem
+
  }
  .search{
    position: relative;

@@ -1,11 +1,11 @@
 <template>
-  <div class="Showcase">
-    <ul>
-    <li class="item"  v-for ="(i,index) in x" :key="index">
+  <div class="Showcase" >
+    <ul  v-for ="(i,index) in x" :key="index">
+    <li class="item" >
       <div class="content">
         <router-link :to="{path:'/Individualdisplay/'+ mainParams.number[i-1]}"> 
-          <img v-bind:src ="`${mainParams.pictureUrl[i-1]}`" alt="参赛作品">  
-         </router-link>
+          <img v-bind:src ="`./static/images/img${index + 1}.png`" alt="参赛作品">  
+        </router-link>
         <ul >
           <li class="clearfix">
             <h1 class="author">{{mainParams.author[i-1]}}</h1> 
@@ -31,14 +31,12 @@ export default {
       test:0,
       turn:true,
       status:false,
-      index:''
-      
+      index:''    
       }
   },
   methods : {
     //点击投票按钮,投票数增加，跳转到个人页面
-    btnClick:function(){
-      
+    btnClick:function(){  
     //  console.log(this.mainParams.authorN)
     //  console.log(this.key)
      
@@ -47,11 +45,8 @@ export default {
         this.test += 1
         this.turn = false 
         this.$emit('transvotenum',this.test)
-        return this.test
-     
-    
-    }
-    
+        return this.test 
+    } 
   },
   computed :{
     
@@ -69,23 +64,26 @@ export default {
 
 <style lang="scss" scoped>
 .Showcase{
-  width: 4.5066rem;
-  .item{
-    break-inside: avoid;   
-     margin-bottom: 0.34rem;
-     
-  }
+  width: 100%;
+  margin-bottom: 0.34rem;
+  column-count: 2;
+  column-width: 4.5066rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
   .content{
-  display: flex;
-  background-color: #fff;
-	border-radius: .1066rem;
-  flex-direction: row;
-  flex-wrap: wrap;
-  box-shadow: 0 0 0.133rem 0
-    #e5e5e5;
+    width:4.5066rem;
+    background-color: #fff;
+    border-radius: .1066rem;
+    break-inside: avoid;
+    display: inline-block;
+    box-shadow: 0 0 0.133rem 0
+      #e5e5e5;
+    margin-top: 0.32rem;
+    display: inline-block;
    img{
      //上传的背景是变量 
      width: 4.5066rem;
+     border: none;
    }
    ul{
     width: 4rem;
@@ -100,24 +98,29 @@ export default {
     .voteBtn{
       float: right;
       width:1.24rem;
-      height: .48rem;
+      height: .5rem;
       background-color: #ffdb7f;
       border-radius: .053rem;
       text-align: center;
       font-size: .24rem;
-      line-height: .48rem;
+      line-height: .5rem;
       color: #000;
+      display: inline-block;
+      vertical-align: middle;
+     
     }
     .voteBtn1{
       float: right;
       width:1.24rem;
-      height: .48rem;
+      height: .5rem;
       background-color:  #ccc;
       border-radius: .053rem;
       text-align: center;
       font-size: .24rem;
-      line-height: .48rem;
+      line-height: .5rem;
       color: #666;
+       display: inline-block;
+       vertical-align: middle;
     }
     a{
       text-decoration-line: none

@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="works">
-        <img :src="`${mainParams.pictureUrl[num -1 ]}`" alt="个人作品" v-for="i in o" :key='i'>
+        <img :src="`./static/images/img2.png`" alt="个人作品" v-for="i in o" :key='i'>
          
       </div> 
       <div class="describe">
